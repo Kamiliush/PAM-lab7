@@ -5,6 +5,7 @@ import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.app.Service;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.BitmapFactory;
 import android.os.Build;
@@ -30,9 +31,20 @@ public class MyForegroundService extends Service {
     private String message;
     private Boolean show_time, do_work, double_speed;
 
+    //4.
+    private Context ctx;
+    private Intent notificationIntent;
+    private PendingIntent pendingIntent;
+
+    private final long period = 2000; //2s
+
     @Override
     public void onCreate() {
-        super.onCreate();
+        //super.onCreate();
+
+        ctx = this;
+        notificationIntent = new Intent(ctx, MainActivity.class);
+        pendingIntent = PendingIntent.getActivity(this,0 , notificationIntent, 0);
     }
 
     @Override
