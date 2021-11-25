@@ -46,7 +46,7 @@ public class MyForegroundService extends Service {
         return null;
     }
 
-    @RequiresApi(api = Build.VERSION_CODES.0)
+    @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
         //return super.onStartCommand(intent, flags, startId);
@@ -87,7 +87,7 @@ public class MyForegroundService extends Service {
         Toast.makeText(this, info, Toast.LENGTH_LONG).show();
     }
 
-    @RequiresApi(api = Build.VERSION_CODES.0)
+    @RequiresApi(api = Build.VERSION_CODES.O)
     private void  createNotificationChannel(){
         NotificationChannel serviceChannel = new NotificationChannel(CHANNEL_ID, CHANNEL_NAME, NotificationManager.IMPORTANCE_DEFAULT);
         NotificationManager manager = getSystemService(NotificationManager.class);
