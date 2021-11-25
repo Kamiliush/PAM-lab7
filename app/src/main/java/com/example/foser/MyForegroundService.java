@@ -79,6 +79,14 @@ public class MyForegroundService extends Service {
     }
 
     private void doWork(){
+
+        try{
+            Thread.sleep(5000);
+
+        }catch (Exception e)
+        {
+            //
+        }
         String info = "Start working..."
                 + "\n show_time = " + show_time.toString()
                 + "\n do_work = " + do_work.toString()
